@@ -12,5 +12,8 @@ fun Application.configureRouting() {
         get("/") {
             call.respondText("Hello World!")
         }
+        static {
+            resources("static")
+        }
     }
 }
