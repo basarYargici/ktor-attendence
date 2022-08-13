@@ -11,6 +11,7 @@
     <script src = "//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
+    <p class = "h1">Participants: </p>
     <ul class = "list-group list-group-flush ui-icon">
         <#list users as user>
             <li class = "list-group-item">
@@ -23,13 +24,15 @@
             </li>
         </#list>
     </ul>
+    <br>
 
+    <p class = "h1">Communities: </p><br>
     <div class = "align-items-center">
         <li style = "display: inline-block; width: 100%; text-align: center;">
             <#list communities as community>
                 <a href = "${community.link}">
                     <img src = "${community.imageUrl}" class = "figure-img img-fluid rounded"
-                         style = "width:400px; height:400px"/>
+                         style = "width:200px; height:200px"/>
                 </a>
             </#list>
         </li>
