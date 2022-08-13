@@ -1,15 +1,23 @@
 package com.basaryargici
 
+import com.basaryargici.data.model.MockData.HOST
+import com.basaryargici.data.model.MockData.PORT
+import com.basaryargici.plugins.configureMonitoring
+import com.basaryargici.plugins.configureRouting
+import com.basaryargici.plugins.configureSerialization
+import freemarker.cache.ClassTemplateLoader
+import io.ktor.server.application.*
 import io.ktor.server.engine.*
+import io.ktor.server.freemarker.*
 import io.ktor.server.netty.*
-import com.basaryargici.plugins.*
 
 fun main() {
-    embeddedServer(Netty, port = 8080, host = "127.0.0.1") {
+    embeddedServer(Netty, port = PORT, host = HOST) {
+        install(FreeMarker) {
+            templateLoader = ClassTemplateLoader(this::class.java.classLoader, "files/templates")
+        }
         configureSerialization()
-        configureTemplating()
         configureMonitoring()
-        configureSecurity()
         configureRouting()
     }.start(wait = true)
 }
