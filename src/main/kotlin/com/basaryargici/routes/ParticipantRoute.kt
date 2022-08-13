@@ -13,7 +13,7 @@ fun Route.getParticipantList() {
     get("/participant") {
         call.respond(
             HttpStatusCode.OK,
-            MockData.PARTICIPANTS
+            MockData.participants
         )
     }
 }
